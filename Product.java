@@ -1,17 +1,41 @@
-public class Product {
-	
-	//TODO: Declare/initialize instance members
+
+public class Product{
+
 	private String asin;
-	
-	//TODO: Create constructor(s)
+
+	private Float avgRating;
+
 	public Product(String asin, int[] ratings) {
-		//TODO: Complete
+		this.setAsin(asin);
+		int sum = 0;
+
+		for (int i = 0; i < ratings.length; i++) {
+			sum += ratings[i];
+		}
+		this.setAvgRating(Float.valueOf((float) sum / ratings.length));
 	}
-	
-	//TODO: Create instance methods
-	
+
+	// Getters and Setters
 	@Override
 	public String toString() {
+		return String.format("ASIN:%s\tVALUES:%f\n", this.getAsin(), this.getAvgRating());
+	}
+
+	public String getAsin() {
 		return asin;
 	}
+
+	public void setAsin(String asin) {
+		this.asin = asin;
+	}
+
+	public Float getAvgRating() {
+		return avgRating;
+	}
+
+	public void setAvgRating(Float avgRating) {
+		this.avgRating = avgRating;
+	}
+
+
 }
